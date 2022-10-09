@@ -3,7 +3,6 @@ package lab2.main;
 import lab2.controller.DidacticFunction;
 import lab2.model.Employee;
 import lab2.repository.EmployeeImpl;
-//import repository.EmployeeMock;
 import lab2.repository.EmployeeRepositoryInterface;
 
 import java.util.Scanner;
@@ -73,19 +72,19 @@ public class StartApp {
 	}
 	
 	private static DidacticFunction getDidacticFunction(String didacticFunction) {
-		if (didacticFunction.toUpperCase().equals("ASISTENT"))
+		if (didacticFunction.equalsIgnoreCase("ASISTENT"))
 		{
 			return DidacticFunction.ASISTENT;
 		}
-		if (didacticFunction.toUpperCase().equals("LECTURER"))
+		if (didacticFunction.equalsIgnoreCase("LECTURER"))
 		{
 			return DidacticFunction.LECTURER;
 		}
-		if (didacticFunction.toUpperCase().equals("TEACHER"))
+		if (didacticFunction.equalsIgnoreCase("TEACHER"))
 		{
 			return DidacticFunction.TEACHER;
 		}
-		if (didacticFunction.toUpperCase().equals("CONFERENTIAR"))
+		if (didacticFunction.equalsIgnoreCase("CONFERENTIAR"))
 		{
 			return DidacticFunction.CONFERENTIAR;
 		}

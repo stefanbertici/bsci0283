@@ -15,8 +15,8 @@ import lab2.model.SalaryCriteria;
 public class EmployeeImpl implements EmployeeRepositoryInterface {
 
 	private static final String ERROR_WHILE_READING_MSG = "Error while reading: ";
-	private final String employeeDBFile = "employeeDB/employees.txt";
-	private EmployeeValidator employeeValidator = new EmployeeValidator();
+	private static final String EMPLOYEE_DB_FILE = "employeeDB/employees.txt";
+	private final EmployeeValidator employeeValidator = new EmployeeValidator();
 	private List<Employee> employeeList = new ArrayList<>();
 	
 	public EmployeeImpl() {
@@ -27,12 +27,9 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 	public boolean addEmployee(Employee employee) {
 		employee.setId(employeeList.size());
 		if (employeeValidator.isValid(employee)) {
-			BufferedWriter bw = null;
-			try {
-				bw = new BufferedWriter(new FileWriter(employeeDBFile, true));
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(EMPLOYEE_DB_FILE, true))) {
 				bw.write(employee.toString());
 				bw.newLine();
-				bw.close();
 				employeeList.add(employee);
 				return true;
 			} catch (IOException e) {
@@ -48,23 +45,27 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 	}
 	
 	private List<Employee> loadEmployeesFromFile() {
-		final List<Employee> employeeList = new ArrayList<Employee>();
-		try (BufferedReader br = new BufferedReader(new FileReader(employeeDBFile));){
-			String line;
-			int counter = 0;
-			while ((line = br.readLine()) != null) {
-				try {
-					final Employee employee = Employee.getEmployeeFromString(line, counter);
-					employeeList.add(employee);
-					//counter++;
-				} catch (EmployeeException ex) {
-					System.err.println(ERROR_WHILE_READING_MSG + ex.toString());
-				}
-			}
+		final List<Employee> employees = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(EMPLOYEE_DB_FILE));){
+			readEmployees(employees, br);
 		} catch (IOException e) {
 			System.err.println(ERROR_WHILE_READING_MSG + e);
 		} 
-		return employeeList;
+		return employees;
+	}
+
+	private static void readEmployees(List<Employee> employees, BufferedReader br) throws IOException {
+		String line;
+		int counter = 0;
+		while ((line = br.readLine()) != null) {
+			try {
+				final Employee employee = Employee.getEmployeeFromString(line, counter);
+				employees.add(employee);
+				counter++;
+			} catch (EmployeeException ex) {
+				System.err.println(ERROR_WHILE_READING_MSG + ex.toString());
+			}
+		}
 	}
 
 	@Override
@@ -74,12 +75,10 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 
 	@Override
 	public List<Employee> getEmployeeByCriteria() {
-		List<Employee> employeeSortedList = new ArrayList<Employee>(employeeList);
+		List<Employee> employeeSortedList = new ArrayList<>(employeeList);
 		Collections.copy(employeeSortedList, employeeList);
 		Collections.sort(employeeSortedList, new AgeCriteria());
-		//System.out.println(employeeSortedList);
 		Collections.sort(employeeSortedList, new SalaryCriteria());
-		//System.out.println(employeeSortedList);
 		return employeeSortedList;
 	}
 

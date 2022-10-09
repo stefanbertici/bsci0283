@@ -137,7 +137,7 @@ public class Employee {
 	public static Employee getEmployeeFromString(String employeeString, int line) throws EmployeeException {
 		Employee employee = new Employee();
 
-		String[] attributes = employeeString.split("[;]");
+		String[] attributes = employeeString.split(";");
 
 		if (attributes.length != 6) {
 			throw new EmployeeException("Invalid line at: " + line);
@@ -157,8 +157,7 @@ public class Employee {
 				employee.setFunction(DidacticFunction.CONFERENTIAR);
 
 			employee.setSalary(Double.valueOf(attributes[SALARY_INDEX]));
-			//employee.setId(Integer.valueOf(attributes[ID]));
-			employee.setId(Integer.valueOf(line));
+			employee.setId(Integer.parseInt(attributes[ID]));
 
 			if (!validator.isValid(employee)) {
 				throw new EmployeeException("Invalid line at: " + line);
