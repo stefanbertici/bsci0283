@@ -1,11 +1,11 @@
-package lab2.repository;
+package ubb.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lab2.controller.DidacticFunction;
-import lab2.model.Employee;
-import lab2.validator.EmployeeValidator;
+import ubb.controller.DidacticFunction;
+import ubb.model.Employee;
+import ubb.validator.EmployeeValidator;
 
 public class EmployeeMock implements EmployeeRepositoryInterface {
 

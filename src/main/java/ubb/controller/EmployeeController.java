@@ -1,10 +1,10 @@
-package lab2.controller;
+package ubb.controller;
 
 import java.util.List;
 
-import lab2.model.Employee;
-import lab2.repository.EmployeeRepositoryInterface;
-import lab2.view.EmployeeView;
+import ubb.model.Employee;
+import ubb.repository.EmployeeRepositoryInterface;
+import ubb.view.EmployeeView;
 
 public class EmployeeController {
 	

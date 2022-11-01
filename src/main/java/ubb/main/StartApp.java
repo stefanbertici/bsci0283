@@ -1,13 +1,13 @@
-package lab2.main;
+package ubb.main;
 
-import lab2.controller.DidacticFunction;
-import lab2.model.Employee;
-import lab2.repository.EmployeeImpl;
-import lab2.repository.EmployeeRepositoryInterface;
+import ubb.controller.DidacticFunction;
+import ubb.model.Employee;
+import ubb.repository.EmployeeImpl;
+import ubb.repository.EmployeeRepositoryInterface;
 
 import java.util.Scanner;
 
-import lab2.controller.EmployeeController;
+import ubb.controller.EmployeeController;
 
 //functionalitati
 //i.	 adaugarea unui nou angajat (nume, prenume, CNP, functia didactica, salariul de incadrare);

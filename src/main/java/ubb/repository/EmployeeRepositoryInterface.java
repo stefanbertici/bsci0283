@@ -1,9 +1,9 @@
-package lab2.repository;
+package ubb.repository;
 
 import java.util.List;
 
-import lab2.controller.DidacticFunction;
-import lab2.model.Employee;
+import ubb.controller.DidacticFunction;
+import ubb.model.Employee;
 
 public interface EmployeeRepositoryInterface {
 	

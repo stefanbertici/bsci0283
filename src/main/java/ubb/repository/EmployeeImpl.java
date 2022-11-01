@@ -1,16 +1,16 @@
-package lab2.repository;
+package ubb.repository;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import lab2.model.AgeCriteria;
-import lab2.controller.DidacticFunction;
-import lab2.model.Employee;
-import lab2.validator.EmployeeException;
-import lab2.validator.EmployeeValidator;
-import lab2.model.SalaryCriteria;
+import ubb.model.AgeCriteria;
+import ubb.controller.DidacticFunction;
+import ubb.model.Employee;
+import ubb.validator.EmployeeException;
+import ubb.validator.EmployeeValidator;
+import ubb.model.SalaryCriteria;
 
 public class EmployeeImpl implements EmployeeRepositoryInterface {
 

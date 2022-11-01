@@ -1,4 +1,4 @@
-package lab2.model;
+package ubb.model;
 
 import java.util.Comparator;
 

@@ -1,4 +1,4 @@
-package lab2.view;
+package ubb.view;
 
 public class EmployeeView {
 	

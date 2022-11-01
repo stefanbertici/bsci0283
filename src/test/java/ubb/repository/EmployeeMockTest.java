@@ -1,7 +1,7 @@
-package lab2.repository;
+package ubb.repository;
 
-import lab2.controller.DidacticFunction;
-import lab2.model.Employee;
+import ubb.controller.DidacticFunction;
+import ubb.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

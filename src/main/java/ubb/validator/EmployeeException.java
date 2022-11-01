@@ -1,4 +1,4 @@
-package lab2.validator;
+package ubb.validator;
 
 public class EmployeeException extends Exception {
 

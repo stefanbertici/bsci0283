@@ -1,8 +1,8 @@
-package lab2.model;
+package ubb.model;
 
-import lab2.controller.DidacticFunction;
-import lab2.validator.EmployeeException;
-import lab2.validator.EmployeeValidator;
+import ubb.controller.DidacticFunction;
+import ubb.validator.EmployeeException;
+import ubb.validator.EmployeeValidator;
 
 public class Employee {
 
